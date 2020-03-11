@@ -1,0 +1,10 @@
+---
+- hosts: server
+  remote_user: ahowey
+  become: true
+  tasks:
+     - name: Transfer the script
+       copy: src=port_check.py dest=/home/ahowey mode=0777
+
+     - name: Execute the script
+       command: /home/ahowey/port_check.py
